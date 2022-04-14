@@ -24,7 +24,7 @@ type EmptyObject = Record<never, never>;
  * Remove 'readonly' from the properties in the object
  */
 type Writable<T extends Readonly<AnyObject>> = {
-  -readonly [P in keyof T]: T[P];
+  -readonly [K in keyof T]: T[K];
 };
 
 /**
@@ -40,3 +40,8 @@ type OneChanged<
   U extends keyof any,
   S extends unknown,
 > = Omit<T, U> & { U: S };
+
+/**
+ * Not empty array
+ */
+type NotEmptyArray<T> = [T, ...T[]];
