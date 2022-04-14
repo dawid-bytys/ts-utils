@@ -17,5 +17,5 @@ const uniqueArray = <T>(array: T[]) => [...new Set(array)];
  * Determines if the value occurs in the array more than once
  */
 const isDuplicate = <T>(array: T[], value: T) => {
-  return array.indexOf(value) === array.lastIndexOf(value);
+  return array.indexOf(value) !== array.lastIndexOf(value);
 };
