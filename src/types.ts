@@ -18,7 +18,7 @@ type AnyObject = Record<keyof any, unknown>;
 /**
  * Empty object
  */
-type EmptyObject = Record<never, never>;
+type EmptyObject = Record<keyof any, never>;
 
 /**
  * Remove 'readonly' from the properties in the object
