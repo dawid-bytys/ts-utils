@@ -45,3 +45,10 @@ type OneChanged<
  * Not empty array
  */
 type NotEmptyArray<T> = [T, ...T[]];
+
+/**
+ * Type of array elements
+ */
+type ArrayElement<T extends readonly unknown[]> = T extends readonly (infer S)[]
+  ? S
+  : never;
