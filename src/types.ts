@@ -21,19 +21,19 @@ type AnyObject = Record<keyof any, unknown>;
 type EmptyObject = Record<never, never>;
 
 /**
- * Remove 'readonly' from properties in an object
+ * Remove 'readonly' from the properties in the object
  */
 type Writable<T extends Readonly<AnyObject>> = {
   -readonly [P in keyof T]: T[P];
 };
 
 /**
- * Remove a value from a union
+ * Remove the value from the union
  */
 type RemoveFromUnion<T, U> = T extends U ? never : T;
 
 /**
- * Change a type of a property in an object
+ * Change the type of the property in the object
  */
 type OneChanged<
   T extends AnyObject,
