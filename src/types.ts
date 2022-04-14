@@ -13,12 +13,12 @@ export type Primitive =
 /**
  * Any object
  */
-type AnyObject = Record<keyof any, unknown>;
+export type AnyObject = Record<keyof any, unknown>;
 
 /**
  * Empty object
  */
-type EmptyObject = Record<keyof any, never>;
+export type EmptyObject = Record<keyof any, never>;
 
 /**
  * Remove 'readonly' from the properties in the object
