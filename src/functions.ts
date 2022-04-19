@@ -2,14 +2,14 @@ import { PRIMITIVES } from './constants';
 import type { Primitive, AnyObject, EmptyObject } from './types';
 
 /**
- * Determine if the value is a primitive
+ * Determine if a value is a primitive
  */
 const isPrimitive = (value: unknown): value is Primitive => {
-  return PRIMITIVES.some(primitive => typeof value === primitive);
+  return PRIMITIVES.includes(typeof value);
 };
 
 /**
- * Determine if the object is empty
+ * Determine if an object is empty
  */
 const isObjectEmpty = <T extends AnyObject>(
   object: T,
@@ -23,7 +23,7 @@ const isObjectEmpty = <T extends AnyObject>(
 const uniqueArray = <T>(array: T[]) => [...new Set(array)];
 
 /**
- * Determine if the value occurs in the array more than once
+ * Determine if a value occurs in an array more than once
  */
 const isDuplicate = <T>(array: T[], value: T) => {
   return array.indexOf(value) !== array.lastIndexOf(value);
