@@ -35,7 +35,7 @@ type DeepWritable<T extends AnyObject> = {
 };
 
 /**
- * Make all properties with nested ones 'readonly'
+ * Make all properties 'readonly' along with nested ones
  */
 type DeepReadonly<T extends AnyObject> = {
   +readonly [K in keyof T]: T[K] extends AnyObject ? DeepReadonly<T[K]> : T[K];
