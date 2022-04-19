@@ -21,19 +21,26 @@ export type AnyObject = Record<keyof any, unknown>;
 export type EmptyObject = Record<keyof any, never>;
 
 /**
- * Remove 'readonly' from the properties in the object
+ * Remove 'readonly' from properties in an object
  */
-type Writable<T extends Readonly<AnyObject>> = {
+type Writable<T extends AnyObject> = {
   -readonly [K in keyof T]: T[K];
 };
 
 /**
- * Remove the value from the union
+ * Remove 'readonly' from nested properties
+ */
+type DeepWritable<T extends AnyObject> = {
+  -readonly [K in keyof T]: T[K] extends AnyObject ? DeepWritable<T[K]> : T[K];
+};
+
+/**
+ * Remove a value from a union
  */
 type RemoveFromUnion<T, U> = T extends U ? never : T;
 
 /**
- * Change the type of the property in the object
+ * Change a type of a property in an object
  */
 type OneChanged<
   T extends AnyObject,
