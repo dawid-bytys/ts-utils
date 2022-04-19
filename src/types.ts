@@ -35,6 +35,13 @@ type DeepWritable<T extends AnyObject> = {
 };
 
 /**
+ * Make all properties with nested ones 'readonly'
+ */
+type DeepReadonly<T extends AnyObject> = {
+  +readonly [K in keyof T]: T[K] extends AnyObject ? DeepReadonly<T[K]> : T[K];
+};
+
+/**
  * Remove a value from a union
  */
 type RemoveFromUnion<T, U> = T extends U ? never : T;
