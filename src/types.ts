@@ -66,3 +66,8 @@ type NotEmptyArray<T> = [T, ...T[]];
 type ArrayElement<T extends readonly unknown[]> = T extends readonly (infer S)[]
   ? S
   : never;
+
+/**
+ * Type of resolved promise
+ */
+type UnpackPromise<T> = T extends Promise<infer R> ? R : never;
