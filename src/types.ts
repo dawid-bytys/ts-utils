@@ -71,3 +71,8 @@ type ArrayElement<T extends readonly unknown[]> = T extends readonly (infer S)[]
  * Type of resolved promise
  */
 type UnpackPromise<T> = T extends Promise<infer R> ? R : never;
+
+/**
+ * Type for making one field in a provided object required
+ */
+type OneRequired<T, V extends keyof T> = T & { [P in V]-?: T[P] };
