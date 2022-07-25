@@ -76,3 +76,18 @@ type UnpackPromise<T> = T extends Promise<infer R> ? R : never;
  * Type for making one field in a provided object required
  */
 type OneRequired<T, V extends keyof T> = T & { [P in V]-?: T[P] };
+
+/**
+ * Type for making sure the provided type is not undefined or null
+ */
+type NotUndefinedOrNull<T> = T extends undefined | null ? never : T;
+
+/**
+ * Type for making sure the provided type is not undefined
+ */
+type NotUndefined<T> = T extends undefined ? never : T;
+
+/**
+ * Type for making sure the provided type is not null
+ */
+type NotNull<T> = T extends null ? never : T;
