@@ -86,3 +86,21 @@ type NotUndefined<T> = T extends undefined ? never : T;
  * Type for making sure the provided type is not null
  */
 type NotNull<T> = T extends null ? never : T;
+
+/**
+ * Type for making a union range from 0 to N - 1
+ */
+type Enumerate<
+  N extends number,
+  Acc extends number[] = [],
+> = Acc['length'] extends N
+  ? Acc[number]
+  : Enumerate<N, [...Acc, Acc['length']]>;
+
+/**
+ * Type for making a union range from F to T - 1
+ */
+type NumberRange<F extends number, T extends number> = Exclude<
+  Enumerate<T>,
+  Enumerate<F>
+>;
