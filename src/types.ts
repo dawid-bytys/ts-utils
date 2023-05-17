@@ -46,7 +46,7 @@ type RemoveFromUnion<T, U> = T extends U ? never : T;
  */
 type OneChanged<
   T extends AnyObject,
-  U extends keyof any,
+  U extends PropertyKey,
   S extends unknown,
 > = Omit<T, U> & { U: S };
 
