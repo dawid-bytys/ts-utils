@@ -28,3 +28,12 @@ function isDuplicate<T>(arr: T[], value: T) {
 function capitalizeFirst<T extends string>(str: T): Capitalize<T> {
   return (str.charAt(0).toUpperCase() + str.slice(1)) as Capitalize<T>;
 }
+
+
+/**
+ * Combines multiple arrays element-wise into an array of tuples.
+ */
+function zip(...arrays: any[]) {
+  const length = Math.min(...arrays.map((arr) => arr.length));
+  return Array.from({ length }, (_, i) => arrays.map((arr) => arr[i]));
+}
